@@ -9,6 +9,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="MY_KEY_HERE"
+            />
+
     </application>
 
 </manifest>
