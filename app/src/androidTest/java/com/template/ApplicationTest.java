@@ -1,15 +1,30 @@
 package com.template;
 
-import android.app.Application;
-import android.test.ApplicationTestCase;
+import android.support.test.rule.ActivityTestRule;
+import android.support.test.runner.AndroidJUnit4;
 
-/**
- * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
- */
-public class ApplicationTest extends ApplicationTestCase<Application> {
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
-    public ApplicationTest() {
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
-        super(Application.class);
+@RunWith(AndroidJUnit4.class)
+public class ApplicationTest {
+
+    @Rule
+    public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(
+            MainActivity.class);
+
+    @Test
+    public void testExample() throws Exception {
+
+        onView(withId(R.id.textView)).check(matches(withText("New Text")));
+
     }
+
+
 }
